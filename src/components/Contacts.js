@@ -5,10 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { FiLogOut } from 'react-icons/fi';
 import { AiFillDelete } from 'react-icons/ai';
 import { contactsActions } from './store';
-
-
-
-
+import { BiUserCircle } from 'react-icons/bi';
 
 function Contacts() {
   const columns = [
@@ -53,22 +50,27 @@ function Contacts() {
 
     <div>
       <div className="topnav">
+        <div style={{ position: 'fixed', top: 0, left: 0 }}>
+          <div style={{
+            margin: -2,
+            'paddingLeft': 2
+          }}>
 
-        <div className="login-container">
-          <div style={{ display: 'inline-flex', position: 'fixed', top: 0, left: 0 }}>
-            <div style={{
-              margin: 15,
-              'paddingLeft': 2
-            }}>
-              <p>{namefetch.name}</p>
-            </div>
-            <div style={{
-              margin: 14,
-              'transform': 'translate(-17, 0)'
-            }}>
-              <p>{namefetch.email}</p>
-            </div>
+            <p style={{
+              marginTop: -3,
+              marginBottom: '0rem'
+            }}><BiUserCircle style={{ width: 50, height: 40 }}></BiUserCircle>{namefetch.name}</p>
+
           </div>
+
+        </div>
+        <p style={{
+          position: 'fixed',
+          top: 17,
+          left: 42
+        }}>{namefetch.email}</p>
+        <div className="login-container">
+
           <FiLogOut onClick={loginHandler} style={{ width: 50, height: 40 }} />
         </div>
       </div>
